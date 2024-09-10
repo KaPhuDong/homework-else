@@ -38,7 +38,9 @@
       }
       #kq {
         color: red;
-        text-align: center;
+        /* text-align: center; */
+        position: relative;
+        bottom: 535px;
       }
     </style>
   </head>
@@ -93,7 +95,7 @@
         } else {
           classification = "Yếu";
         }
-        document.getElementById("kq").innerText = "Học sinh: " + classification;
+        document.getElementById("kq").innerText = "Học sinh " + classification;
       }
 
       function clearForm() {
