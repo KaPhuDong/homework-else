@@ -36,35 +36,72 @@
         text-align: center;
         line-height: 600px;
       }
+      #kq {
+        color: red;
+        text-align: center;
+      }
     </style>
   </head>
   <body>
-    <form action="">
-      <h1 id="bangdiem">BANG DIEM CUA EM</h1>
-      <label for="">Semester1: </label>
-      <input type="number" id="dime1" />
+    <form id="gradeForm">
+      <h1 id="bangdiem">BẢNG ĐIỂM CỦA EM</h1>
+      <label for="dime1">Semester 1: </label>
+      <input type="number" id="dime1" step="0.01" />
       <br />
-      <label for="">Semester2: </label>
-      <input type="number" id="dime1" />
+      <label for="dime2">Semester 2: </label>
+      <input type="number" id="dime2" step="0.01" />
       <br />
-      <label for="">Year: </label>
-      <select name="" id="year">
+      <label for="year">Year: </label>
+      <select id="year">
         <option value="1">1</option>
         <option value="2">2</option>
         <option value="3">3</option>
       </select>
       <br />
-      <label for="">Summarise: </label>
-      <input type="number" />
+      <label for="summary">Summarise: </label>
+      <input type="number" id="summary" readonly />
       <div id="choice">
-        <button>OK</button>
-        <button>Cancel</button>
+        <button type="button" onclick="calculateGrade()">OK</button>
+        <button type="button" onclick="clearForm()">Cancel</button>
       </div>
       <h1 id="kq"></h1>
     </form>
+
     <script>
-      var diem1 = parseFloat(document.getElementById("dime1").value);
-      var diem2 = parseFloat(document.getElementById("dime2").value);
+      function calculateGrade() {
+        var diem1 = parseFloat(document.getElementById("dime1").value);
+        var diem2 = parseFloat(document.getElementById("dime2").value);
+        var year = parseInt(document.getElementById("year").value);
+        var summary = 0;
+        if (year === 1) {
+          summary = (diem1 + diem2) / 2;
+        } else if (year === 2) {
+          summary = (diem1 + diem2 * 2) / 3;
+        } else if (year === 3) {
+          summary = (diem1 + diem2 * 3) / 4;
+        }
+        document.getElementById("summary").value = summary;
+        var classification = "";
+        if (summary >= 9) {
+          classification = "Xuất sắc";
+        } else if (summary >= 8) {
+          classification = "Giỏi";
+        } else if (summary >= 7) {
+          classification = "Khá";
+        } else if (summary >= 5) {
+          classification = "Trung bình";
+        } else {
+          classification = "Yếu";
+        }
+        document.getElementById("kq").innerText = "Học sinh: " + classification;
+      }
+
+      function clearForm() {
+        document.getElementById("dime1").value = "";
+        document.getElementById("dime2").value = "";
+        document.getElementById("summary").value = "";
+        document.getElementById("kq").innerText = "";
+      }
     </script>
   </body>
 </html>
