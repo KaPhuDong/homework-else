@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      body {
+        font-size: 30px;
+      }
+      form {
+        background-color: #d5d0d0;
+        width: 800px;
+        height: 600px;
+        padding: 0 50px;
+      }
+      #bangdiem {
+        text-align: center;
+        color: blue;
+      }
+      input {
+        width: 80%;
+        height: 30px;
+      }
+      select {
+        width: 70px;
+        height: 30px;
+        color: red;
+        font-size: 20px;
+      }
+      button {
+        background-color: #fff;
+        font-size: 20px;
+      }
+      #choice {
+        text-align: center;
+        line-height: 600px;
+      }
+    </style>
+  </head>
+  <body>
+    <form action="">
+      <h1 id="bangdiem">BANG DIEM CUA EM</h1>
+      <label for="">Semester1: </label>
+      <input type="number" id="dime1" />
+      <br />
+      <label for="">Semester2: </label>
+      <input type="number" id="dime1" />
+      <br />
+      <label for="">Year: </label>
+      <select name="" id="year">
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+      </select>
+      <br />
+      <label for="">Summarise: </label>
+      <input type="number" />
+      <div id="choice">
+        <button>OK</button>
+        <button>Cancel</button>
+      </div>
+      <h1 id="kq"></h1>
+    </form>
+    <script>
+      var diem1 = parseFloat(document.getElementById("dime1").value);
+      var diem2 = parseFloat(document.getElementById("dime2").value);
+    </script>
+  </body>
+</html>
